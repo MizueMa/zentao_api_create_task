@@ -1,30 +1,23 @@
+Welcome to the zentao_api_create_task wiki!
 # zentao_api_create_task
 # excel_deal 分析Excel中的任务，并筛选出自己关注的列
-关注列：["项目名称",'需求', 
-        '描述',
-         '输出成果/验收标准', 
-         '执行人',
-         '优先级',
-         "要求完成时间",
-         "用户故事/任务",
-         "初始规模",
-         "计划完成时间"]
+ 关注列：["项目名称",'需求','描述','输出成果/验收标准','执行人','优先级',"要求完成时间","用户故事/任务","初始规模","计划完成时间"]
+
 # structs关于禅道相关的结构体定义
 禅道创建需求的状态不支持设置
-`
+```python
 # 需求结构
-
 # title 需求名称 
 # spec 需求描述
 # product 需求所属产品  273
 # pri 需求优先级 1为紧急  4为一般
-# category 需求需求类型 
+# category 需求需求类型
 # --> feature 功能 | interface 接口 | performance 性能 | safe 安全 
 # --> experience 体验 | improve 改进 | other 其他”
 # verify 验收标准
 class ProductStorie(object):
     def __init__(self
-    ,title=""
+    `,title=""
     ,spec=""
     ,product=""
     ,pri=3
@@ -40,8 +33,8 @@ class ProductStorie(object):
         # 状态(draft 草稿 | active 激活 | closed 已关闭 | changed 已变更) 无效
         self.status = status
 
-
-
+```
+```python
 #任务结构    
 
 #      所属模块
@@ -77,7 +70,7 @@ class TaskStruct(object):
         self.estStarted=estStarted
         self.deadline=deadline
         self.module=module    
-`
+```
 # zentao_api禅道的API封装
 1. 登录
 2. 获取产品列表
@@ -85,7 +78,7 @@ class TaskStruct(object):
 4. 创建需求
 5. 创建任务
 # main_pro 主体流程
-`
+
 读取Excel中的需求，并添加到禅道
 读取excel中的执行，并添加到禅道
 AppPersonInfo 筛选出excel中指定的人的任务   注意：这里的ABCD是登录禅道的账号  不是执行人
